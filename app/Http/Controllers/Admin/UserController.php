@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        $data['users'] = User::orderBy('id','desc')->paginate('2');
+        return view('admin.user.index',$data);
     }
 
     /**
@@ -100,5 +101,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        User::destroy($id);
+        session()->flash('message','Delete successfully');
+        return redirect()->back();
     }
 }
