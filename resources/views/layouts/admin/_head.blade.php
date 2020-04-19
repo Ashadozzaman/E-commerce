@@ -53,6 +53,8 @@
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/admin/responsive.css') }}">

@@ -90,7 +90,16 @@
                                                         </li>
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        <li>
+                                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                               onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();"><span class="fa fa-settings author-log-ic"></span>
+                                                                {{ __('Logout') }}
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </li>

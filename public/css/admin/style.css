@@ -2174,7 +2174,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 .form-group-inner label{
 	font-size:14px;
-	color:#303030;
+	color:#ffe7e7;
 }
 .form-group-inner input[type="email"], .form-group-inner input[type="password"], .form-group-inner input[type="text"], .form-select-list .custom-select-value{
 	font-size:14px;
@@ -3292,7 +3292,7 @@ ul.mailbox-list li:hover a, ul.h-list li:hover a {
 }
 .form-group-inner label{
 	font-size:14px;
-	color:#303030;
+	color:#ffe7e7 !important;
 }
 .form-group-inner input[type="email"], .form-group-inner input[type="password"], .form-group-inner input[type="text"], .form-select-list .custom-select-value{
 	font-size:14px;
@@ -3466,6 +3466,7 @@ ul.mailbox-list li:hover a, ul.h-list li:hover a {
     background-color: #0077B5;
 }
 .form-group-inner label.login2 {
+	color: #f7f7f7 !important;
     margin: 0px;
     padding: 7px 0px;
 }
