@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','Create New Admin')
+@section('title','Edit Admin User details')
 @section('content')
 	
 <div class="row">
@@ -7,7 +7,7 @@
         <div class="sparkline12-list">
             <div class="sparkline12-hd">
                 <div class="main-sparkline12-hd">
-                    <h1 style="color: #fff">All Form Element</h1>
+                    <h1 style="color: #fff">Edit Form</h1>
                 </div>
             </div>
             <div class="sparkline12-graph">
@@ -15,9 +15,10 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="all-form-element-inner">
-                                <form action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('user.update',$user->id)}}" method="post" enctype="multipart/form-data">
                                 	@csrf
-                                    @include('admin.user._form')
+                                    @method('put')
+                                   @include('admin.user._form')
                                     <div class="form-group-inner color">
                                         <div class="login-btn-inner">
                                             <div class="row">
@@ -25,7 +26,7 @@
                                                 <div class="col-lg-9">
                                                     <div class="login-horizental cancel-wp pull-left">
                                                         <button class="btn btn-white" type="submit">Cancel</button>
-                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Save User</button>
+                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">Update</button>
                                                     </div>
                                                 </div>
                                             </div>

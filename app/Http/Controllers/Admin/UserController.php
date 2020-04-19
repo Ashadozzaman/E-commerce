@@ -77,7 +77,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::findOrFail($id);
+        return view('admin.user.edit',$data);
     }
 
     /**
@@ -89,7 +90,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'mimes:jpeg,png,webp'
+        ]);
+        $data['name'] = $request->name;
+        $user = User::findOrFail($id);
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $path = 'images/user';
+            $file_name = time().rand(0000,9999).'.'.$file->getClientOriginalExtension();
+            $file->move($path,$file_name);
+            $data['image'] = $path.'/'.$file_name;
+        }
+        if ($user->image != null && file_exists($user->image)) {
+            unlink($user->image);
+        }
+        // dd($request->all());
+        $user->update($data);
+        session()->flash('message','Admin Update successfully');
+        return redirect()->route('user.index');
     }
 
     /**
