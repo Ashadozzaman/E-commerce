@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller
+use App\Http\Controllers\Controller;
 use App\Vandor;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,9 @@ class VandorController extends Controller
      */
     public function index()
     {
-        //
+       $data['vandors'] = Vandor::orderBy('id','desc')->paginate('2');
+       // dd($data);
+        return view('admin.vandor.index',$data);
     }
 
     /**
@@ -25,7 +27,8 @@ class VandorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.vandor.create');
+       
     }
 
     /**
@@ -36,7 +39,19 @@ class VandorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'status' => 'required',
+
+        ]);
+        $data = $request->except(['_token']);
+        // dd($data);
+        Vandor::create($data);
+        session()->flash('message','Create Vandor successfully');
+        return redirect()->route('vandor.index');
+
     }
 
     /**
@@ -58,7 +73,9 @@ class VandorController extends Controller
      */
     public function edit(Vandor $vandor)
     {
-        //
+       $data['vandor'] = $vandor;
+        // dd($data);
+        return view('admin.vandor.edit',$data);
     }
 
     /**
@@ -70,7 +87,18 @@ class VandorController extends Controller
      */
     public function update(Request $request, Vandor $vandor)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'status' => 'required',
+
+        ]);
+        $data = $request->except(['_token']);
+        // dd($data);
+        $vandor->update($data);
+        session()->flash('message','Update Vandor successfully');
+        return redirect()->route('vandor.index');
     }
 
     /**
@@ -81,6 +109,8 @@ class VandorController extends Controller
      */
     public function destroy(Vandor $vandor)
     {
-        //
+        $vandor->delete();
+        session()->flash('message','Deleted vandor');
+        return redirect()->back();
     }
 }

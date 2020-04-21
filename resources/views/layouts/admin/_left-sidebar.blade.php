@@ -28,10 +28,31 @@
                         
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Users</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Users</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Peity Charts" href="{{ route('user.index')}}"><span class="mini-sub-pro">Users List</span></a></li>
                                 <li><a title="Data Table" href="{{ route('user.create')}}"><span class="mini-sub-pro">Create New User</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Categories</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="{{ route('category.index')}}"><span class="mini-sub-pro">Categories List</span></a></li>
+                                <li><a title="Data Table" href="{{ route('category.create')}}"><span class="mini-sub-pro">Create New Category</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Products</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="{{ route('product.index')}}"><span class="mini-sub-pro">Products List</span></a></li>
+                                <li><a title="Data Table" href="{{ route('product.create')}}"><span class="mini-sub-pro">Create New product</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Vandors</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="{{ route('vandor.index')}}"><span class="mini-sub-pro">Vandors List</span></a></li>
+                                <li><a title="Data Table" href="{{ route('vandor.create')}}"><span class="mini-sub-pro">Create New vandor</span></a></li>
                             </ul>
                         </li>
                         <li>

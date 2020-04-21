@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','Admin List')
+@section('title','Categories List')
 @section('content')
 	<div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -17,21 +17,21 @@
                                 <tr>
                                     <th>Serial No</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Image</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $id=>$user)
+                                @foreach($categories as $id=>$category)
 	                                <tr>
-	                                    <td>{{$users->firstItem() + $id }}</td>
-	                                    <td>{{$user->name}}</td>
-	                                    <td>{{$user->email }}</td>
-	                                    <td><img style="width: 100px" class="img-fluid" src="{{ asset($user->image)}}" /></td>
+	                                    <td>{{$categories->firstItem() + $id }}</td>
+	                                    <td>{{ $category->name}}</td>
+	                                    <td>{{ $category->description }}</td>
+	                                    <td>{{ $category->status }}</td>
 	                                    <td>
-	                                    	<a href="{{route('user.edit',$user->id)}}"><button class="btn btn-primary btn-sm">Edit</button></a>
-	                                    	<form action="{{ route('user.destroy',$user->id)}}" method="post">
+	                                    	<a href="{{route('category.edit',$category->id)}}"><button class="btn btn-primary btn-sm">Edit</button></a>
+	                                    	<form action="{{ route('category.destroy',$category->id)}}" method="post">
 	                                    		@csrf
 	                                    		@method('delete')
 	                                    	<button class="btn btn-info btn-sm" onclick="return confirm('Are you sure delete this?')">Delete</button>
@@ -42,9 +42,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <!-- {{ $users->links()}} -->
+                        <!-- {{ $categories->links()}} -->
                         <div class="text-center">
-                        {{ $users->render()}}                        	
+                        {{ $categories->render()}}                        	
                         </div>>
                     </div>
                 </div>
