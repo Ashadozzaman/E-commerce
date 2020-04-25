@@ -1,8 +1,9 @@
 @extends('layouts.front.master')
 @section('title','Home Page')
+
 @section('content')
    <!-- banner part start-->
-    <section class="banner_part">
+    <section class="banner_part" >
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
@@ -60,141 +61,55 @@
     <section class="new_arrival section_padding">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="arrival_tittle">
-                        <h2>new arrival</h2>
+                        <h2 class="text-center"> New Product arrival</h2>
+
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="arrival_filter_item filters">
-                        <ul>
-                            <li class="active controls" data-filter="*">all</li>
-                            <li class="controls" data-toggle=".men">men</li>
-                            <li class="controls" data-toggle=".women">women</li>
-                            <li class="controls" data-toggle=".shoes">shoes</li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="new_arrival_iner filter-container">
-                        <div class="single_arrivel_item weidth_1 mix shoes">
-                            <img src="{{ asset('img/front/arrivel/arrivel_5.png')}}" alt="#">
-                            <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>$150</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_arrivel_item weidth_2 mix women">
-                            <img src="{{ asset('img/front/arrivel/arrivel_2.png')}}" alt="#">
-                            <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>$150</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        @foreach($new_products as $product)
                         <div class="single_arrivel_item weidth_3 mix shoes women" >
-                            <img src="{{ asset('img/front/arrivel/arrivel_3.png')}}" alt="#">
+                            <img style="width: 500px;height: 450px" src="{{ asset($product->product_images[0]->image)}}" alt="#">
                             <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
+                                <p>{{ $product->category->name }}</p>
+                                <a href="single-product.html">
+                                    <h3>{{ $product->name }}</h3>
+                                </a>
                                 <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fa fa-star"></i> </a>
+                                    <a href="#"> <i class="fa fa-star"></i> </a>
+                                    <a href="#"> <i class="fa fa-star"></i> </a>
+                                    <a href="#"> <i class="fa fa-star"></i> </a>
+                                    <a href="#"> <i class="fa fa-star"></i> </a>
                                 </div>
-                                <h5>$150</h5>
+                                <h5>${{ $product->unit_price }}</h5>
                                 <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#" <i class="fa fa-shopping-bag" ></i>
+                                    </a>
                                 </div>
+                                <br>
+                                <button class="btn btn-info addToCart"
+                                        cus-product-id="{{ $product->id}}"
+                                        cus-product-name="{{ $product->name}}"
+                                        cus-product-price="{{ $product->unit_price}}"
+                                        @if(isset($product->product_images[0]))
+                                        cus-product-image="{{ $product->product_images[0]->image}}"
+                                        @else
+                                        cus-product-image="{{ asset(img/unnamed.png)}}"
+                                        @endif
+                                        >Add to cart</button>
                             </div>
-                        </div>
-                        <div class="single_arrivel_item weidth_3 mix women men">
-                            <img src="{{ asset('img/front/arrivel/arrivel_4.png')}}" alt="#">
-                            <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>$150</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_arrivel_item weidth_2 mix men women">
-                            <img src="{{ asset('img/front/arrivel/arrivel_1.png')}}" alt="#">
-                            <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>$150</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_arrivel_item weidth_1 mix shoes men">
-                            <img src="{{ asset('img/front/arrivel/arrivel_6.png')}}" alt="#">
-                            <div class="hover_text">
-                                <p>Canvas</p>
-                                <a href="single-product.html"><h3>Lorem Canvas Low-Top Sneaker</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>$150</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-heart"></i></a>
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        </div>    
+                        @endforeach
                     </div>
                 </div> 
             </div>
@@ -202,43 +117,54 @@
     </section>
     <!-- new arrival part end -->
 
-    <!-- free shipping here -->
-    <section class="shipping_details section_padding">
+    <!-- new category products shipping here -->
+<section class="new_arrival">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_shopping_details">
-                        <img src="{{ asset('img/front/icon/icon_1.png')}}" alt="">
-                        <h4>Free shipping</h4>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="arrival_tittle">
+                        <h2 class="text-center">{{$new_category_products->name}} Category Products</h2>
+                    </div>    
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_shopping_details">
-                        <img src="{{ asset('img/front/icon/icon_2.png')}}" alt="">
-                        <h4>Free shipping</h4>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
+                
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="col-lg-12">
+                <div class="row">
+                    
+                    @foreach($new_category_products->product as $item)
+                    <div class="col-md-4">
+                        <div class="new_arrival_iner">
+                            <div class="single_arrivel_item " >
+                                @if(isset($item->product_images[0]))
+                                <img style="width: 500px;height: 400px" src="{{ asset($item->product_images[0]->image)}}" alt="#">
+                                @endif
+                                <div class="hover_text">
+                                    <p>{{$item->category->name}}</p>
+                                    <a href="single-product.html"><h3>{{$item->name}}</h3></a>
+                                    <div class="rate_icon">
+                                        <a href="#"> <i class="fa fa-star"></i> </a>
+                                        <a href="#"> <i class="fa fa-star"></i> </a>
+                                        <a href="#"> <i class="fa fa-star"></i> </a>
+                                        <a href="#"> <i class="fa fa-star"></i> </a>
+                                        <a href="#"> <i class="fa fa-star"></i> </a>
+                                    </div>
+                                    <h5>${{$item->unit_price}}</h5>
+                                    <div class="social_icon">
+                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a href="#"><i class="fa fa-shopping-bag"></i></a>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_shopping_details">
-                        <img src="{{ asset('img/front/icon/icon_3.png')}}" alt="">
-                        <h4>Free shipping</h4>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_shopping_details">
-                        <img src="{{ asset('img/front/icon/icon_4.png')}}" alt="">
-                        <h4>Free shipping</h4>
-                        <p>Divided face for bearing the divide unto seed winged divided light Forth.</p>
-                    </div>
-                </div>
+                    @endforeach   
+                </div> 
             </div>
         </div>
     </section>
     <!-- free shipping end -->
-
     <!-- subscribe_area part start-->
     <section class="instagram_photo">
         <div class="container-fluid>

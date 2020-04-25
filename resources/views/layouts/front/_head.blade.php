@@ -10,7 +10,8 @@
     <!-- owl carousel CSS -->
     <link rel="stylesheet" href="{{ asset('css/front/owl.carousel.min.css')}}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{{ asset('css/front/all.css')}}">
+    
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('css/front/flaticon.css')}}">
     <link rel="stylesheet" href="{{ asset('css/front/themify-icons.css')}}">
@@ -20,3 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/front/slick.css')}}">
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('css/front/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style2.css')}}">
+<!-- @section('custom-js')
+    <script src="{{ asset('js/front/cart.js')}}"></script>
+@endsection -->

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
@@ -50,7 +50,7 @@ class ProductController extends Controller
             'category_id'=>'required',
             'vandor_id'=>'required',
             'brand'=>'required',
-            'status'=>'required|enum:'.Product::ACTIVE_STATUS.','.Product::INACTIVE_STATUS,
+            'status'=>'required',
             'description'=>'required',
             'stock'=>'required|int',
             'unit_price'=>'required',
@@ -154,7 +154,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
        $product->delete();
-       session->flash('message','Deleted Product');
+       session()->flash('message','Deleted Product');
        return redirect()->back();
     }
 }

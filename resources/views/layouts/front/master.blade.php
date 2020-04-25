@@ -2,6 +2,9 @@
 <html lang="zxx">
 
 <head>
+    @section('custom-js')
+    <script src="{{ asset('js/front/cart.js')}}"></script>
+    @endsection
     @include('layouts.front._head')
 </head>
 

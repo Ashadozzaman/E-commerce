@@ -24,3 +24,5 @@
     <script src="{{ asset('js/front/mail-script.js')}}"></script>
     <!-- custom js -->
     <script src="{{ asset('js/front/custom.js')}}"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    @yield('custom-js')

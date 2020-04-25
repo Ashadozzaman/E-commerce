@@ -14,3 +14,11 @@
 h1.h1collor{
 	color: #fff !important;
 }
+.dropdown-menu.cart{
+	position: relative !important;
+}
+.dropdown-menu.cart-manu{
+	position: absolute !important;
+	top: 100% !important;
+	right: 0 !important;
+}

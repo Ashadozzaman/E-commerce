@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home')->name('front.home');
+Route::get('shop', 'HomeController@shop')->name('front.shop');
+Route::get('_checkout','CheckoutController@cart')->name('_checkout');
+Route::get('checkout_submit','CheckoutController@checkout')->name('checkout.submit');
+
+Route::get('{category_id}', 'HomeController@category')->name('category.product');
+
+
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'auth'],function(){
 	Route::get('dashboard','DashboardController@dashboard')->name('admin.dashboard');
@@ -30,4 +37,4 @@ Auth::routes([
   'verify' => false, // Email Verification Routes...
 ]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
