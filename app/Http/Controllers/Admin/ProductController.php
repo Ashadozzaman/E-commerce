@@ -54,7 +54,7 @@ class ProductController extends Controller
             'description'=>'required',
             'stock'=>'required|int',
             'unit_price'=>'required',
-            'image.*'=>'mimes:jpep,png,webp',
+            'image.*'=>'mimes:jpeg,png,webp',
 
        ]);
 

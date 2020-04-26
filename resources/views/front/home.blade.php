@@ -77,7 +77,9 @@
                         
                         @foreach($new_products as $product)
                         <div class="single_arrivel_item weidth_3 mix shoes women" >
+                            @if(isset($product->product_images[0]))
                             <img style="width: 500px;height: 450px" src="{{ asset($product->product_images[0]->image)}}" alt="#">
+                            @endif
                             <div class="hover_text">
                                 <p>{{ $product->category->name }}</p>
                                 <a href="single-product.html">
@@ -104,7 +106,7 @@
                                         @if(isset($product->product_images[0]))
                                         cus-product-image="{{ $product->product_images[0]->image}}"
                                         @else
-                                        cus-product-image="{{ asset(img/unnamed.png)}}"
+                                        cus-product-image="{{ asset('img/unnamed.png')}}"
                                         @endif
                                         >Add to cart</button>
                             </div>

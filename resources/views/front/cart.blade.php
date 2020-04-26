@@ -37,6 +37,29 @@
             <tbody id="showDetailsCart">
             </tbody>
           </table>
+          <div class="col-lg-12">
+          <h2>Billing Address</h2>
+      	 		<div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="name" id="input-name" placeholder="Your Full name" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" id="input-email" placeholder="Email Address" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="phone" id="input-phone" placeholder="Phone Number" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="address" id="input-address" rows="3" placeholder="Address"></textarea>
+                    </div>
+                  </div>
+          </div>
           <div class="price" style="margin-left:  950px;">
           	<h3>Total Price:<span  class="total">0</span></h3>
           </div>
