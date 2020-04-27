@@ -31,7 +31,9 @@
                             <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Users</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Peity Charts" href="{{ route('user.index')}}"><span class="mini-sub-pro">Users List</span></a></li>
+                                @can('admin',auth()->user())
                                 <li><a title="Data Table" href="{{ route('user.create')}}"><span class="mini-sub-pro">Create New User</span></a></li>
+                                @endcan
                             </ul>
                         </li>
                         <li>

@@ -1,9 +1,11 @@
 @extends('layouts.admin.master')
 @section('title','Admin Dashborad')
 @section('content')
-	
         <div class="section-admin container-fluid">
             <div class="row admin text-center">
+                <div class="col-md-12">
+                    @include('layouts.admin._message')   
+                </div>
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

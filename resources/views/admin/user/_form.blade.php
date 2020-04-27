@@ -1,20 +1,41 @@
  <div class="form-group-inner color">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <label class="login2 pull-right pull-right-pro">Role</label>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <select name="role" class="form-control">
+                <option value="">Select</option>
+                <option @if(old('role', isset($user->role)?$user->role:null) == \App\User::ROLE_ADMIN) selected @endif value="{{\App\User::ROLE_ADMIN}}">Admin
+                </option>
+                <option @if(old('role', isset($user->role)?$user->role:null) == \App\User::ROLE_MANAGER) selected @endif value="{{\App\User::ROLE_MANAGER}}">Manager</option>
+
+            </select>
+            @error('role')
+            <div class="text-danger">
+            	{{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+   
+</div>
+ <div class="form-group-inner color">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
             <label class="login2 pull-right pull-right-pro">Name</label>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
             <input type="text" name="name" value="{{ old('name',isset($user->name)?$user->name:null)}}" class="form-control" />
          @error('name')
             <div class="text-danger">
-            	{{ $message }}
+                {{ $message }}
             </div>
         @enderror
         </div>
     </div>
    
 </div>
-
 <div class="form-group-inner color">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

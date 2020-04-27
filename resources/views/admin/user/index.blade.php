@@ -17,9 +17,12 @@
                                 <tr>
                                     <th>Serial No</th>
                                     <th>Name</th>
+                                    <th>Role</th>
                                     <th>Email</th>
                                     <th>Image</th>
+                                    @can('admin', auth()->user())
                                     <th>Action</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,17 +30,21 @@
 	                                <tr>
 	                                    <td>{{$users->firstItem() + $id }}</td>
 	                                    <td>{{$user->name}}</td>
+                                        <td>{{$user->role}}</td>
+
 	                                    <td>{{$user->email }}</td>
 	                                    <td><img style="width: 100px" class="img-fluid" src="{{ asset($user->image)}}" /></td>
-	                                    <td>
-	                                    	<a href="{{route('user.edit',$user->id)}}"><button class="btn btn-primary btn-sm">Edit</button></a>
-	                                    	<form action="{{ route('user.destroy',$user->id)}}" method="post">
-	                                    		@csrf
-	                                    		@method('delete')
-	                                    	<button class="btn btn-info btn-sm" onclick="return confirm('Are you sure delete this?')">Delete</button>
+                                        @can('admin', auth()->user())
+                                        <td>
+                                            <a href="{{route('user.edit',$user->id)}}"><button class="btn btn-primary btn-sm">Edit</button></a>
+                                            <form action="{{ route('user.destroy',$user->id)}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                            <button class="btn btn-info btn-sm" onclick="return confirm('Are you sure delete this?')">Delete</button>
 
-	                                    	</form>
-	                                	</td>
+                                            </form>
+                                        </td>
+                                        @endcan
 	                                </tr>
                                 @endforeach
                             </tbody>
