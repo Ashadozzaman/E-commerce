@@ -71,5 +71,6 @@
         </div>
       </div>
   </section>
+  <url val="{{route('payment.index')}}"></url>
   <!--================End Cart Area =================-->
 @endsection

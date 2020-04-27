@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Client;
+use App\OrderDetail;
+
 
 class Order extends Model
 {
@@ -22,6 +25,14 @@ class Order extends Model
     const STATUS_PROCESSING = 'processing';
     const STATUS_DELIVERED = 'delivered';
     const STATUS_DECLINED = 'declined';
+
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+    public function orderDetails(){
+        return $this->hasMany(OrderDetail::class);
+    }
 
 
 }

@@ -1,7 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\OrderPlacement;
+
+
 use Illuminate\Support\Facades\DB;
+use Mail; 
+// use Illuminate\Support\Facades\Mail;
+
 
 use Log;
 use App\Order;
@@ -65,8 +71,11 @@ class CheckoutController extends Controller
 	    	}
 	    	$order->total_ammount = $total_ammount;
 	    	$order->save();
+
 	    	DB::commit();
-	    	return json_encode(['responce'=>true]);
+
+	    	// Mail::to($client->email)->send(new OrderPlacement());
+	    	return json_encode(['order_id'=>$order->id]);
     	}catch(\Exception $exception){
 	        // dd('error');
 	        DB::rollback();

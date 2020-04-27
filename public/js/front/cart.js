@@ -77,12 +77,14 @@ $('.checkout_btn').click(function(){
 				type:'get',
 				success: function(responce){
 					let res = JSON.parse(responce);
-					if (res.responce) {
+					if (res.order_id) {
 						localStorage.clear();
 						alert('success');
 						cartDetails();
 						showcartDetails();
 						clearClientInput();
+						let redirectURL = $('url').attr('val');
+						window.location.replace(redirectURL+'/'+res.order_id);
 					}else{
 						console.log('error');
 					}

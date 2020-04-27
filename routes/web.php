@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'auth'],function(){
 	Route::get('dashboard','DashboardController@dashboard')->name('admin.dashboard');
+	Route::get('index','OrderController@index')->name('order.index');
+
 	Route::resource('user','UserController');
 	Route::resource('category','CategoryController');
 	Route::resource('vandor','VandorController');
@@ -35,5 +37,9 @@ Route::get('/', 'HomeController@home')->name('front.home');
 Route::get('shop', 'HomeController@shop')->name('front.shop');
 Route::get('_checkout','CheckoutController@cart')->name('_checkout');
 Route::get('checkout_submit','CheckoutController@checkout')->name('checkout.submit');
+Route::get('payment/{order_id?}','PaymentController@index')->name('payment.index');
+Route::get('payment/{order_id}/init','PaymentController@paymentInit')->name('payment.init');
+
+
 
 Route::get('{category_id}', 'HomeController@category')->name('category.product');

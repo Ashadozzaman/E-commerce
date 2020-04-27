@@ -56,6 +56,12 @@
                             </ul>
                         </li>
                         <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Orders</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="{{ route('order.index')}}"><span class="mini-sub-pro">Orders List</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Peity Charts" href="static-table.html"><span class="mini-sub-pro">Static Table</span></a></li>

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Order;
 class OrderDetail extends Model
 {
     protected $fillable = [
@@ -16,4 +16,8 @@ class OrderDetail extends Model
     	'unit_price',
     	'subtotal',
     ];
+
+    public function orders(){
+    return $this->belongsTo(Order::class);
+    }
 }
